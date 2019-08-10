@@ -3,17 +3,26 @@ import sys, pathlib
 
 def iniciarFlask():
     while True:
-        processo = Popen("python myapp.py", shell=True)
+        processo = Popen("python ./flask/app.py", shell=True)
         processo.wait()
 
-def instalarBD():
+def instalarMigrations():
     processo = Popen("python ./flask/bd.py db init", shell=True)
     processo.wait()
-    processo = Popen("python ./flask/bd.py db migrate", shell=True)
-    processo.wait()
+
+def instalarBD():
+    migracoes = pathlib.Path('migrations')
+    if migracoes.is_dir():
+        processo = Popen("python ./flask/bd.py db migrate", shell=True)
+        processo.wait()
+    else:
+        instalarMigrations()
+        processo = Popen("python ./flask/bd.py db migrate", shell=True)
+        processo.wait()
+
+def atualizarBD():
     processo = Popen("python ./flask/bd.py db upgrade", shell=True)
     processo.wait()
-    iniciarFlask()
 
 
 if len(sys.argv) > 1:
@@ -21,8 +30,10 @@ if len(sys.argv) > 1:
     processo = Popen("python " + argumento, shell=True)
     processo.wait()
 else:
-    base_de_dados = pathlib.Path('database.db')
+    base_de_dados = pathlib.Path('baseDeDados.db')
     if base_de_dados.is_file():
         iniciarFlask()
     else:
         instalarBD()
+        atualizarBD()
+        iniciarFlask()

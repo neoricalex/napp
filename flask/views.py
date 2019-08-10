@@ -1,7 +1,7 @@
-from myapp import app
-from models import Member
-from forms import LoginForm
-from flask import render_template
+from app import app
+#from models import Member
+#from forms import LoginForm
+#from flask import render_template
 
 @app.route('/')
 def index():

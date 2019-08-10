@@ -5,7 +5,7 @@ from flask_migrate import Migrate, MigrateCommand
 
 app = Flask(__name__)
 
-app.config.from_pyfile('../flask/config.py')
+app.config.from_pyfile('config.py')
 
 db = SQLAlchemy(app)
 
