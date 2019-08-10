@@ -5,17 +5,14 @@ from flask_migrate import Migrate, MigrateCommand
 
 app = Flask(__name__)
 
-app.config.from_pyfile('config.py')
+app.config.from_pyfile('../flask/config.py')
 
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 manager = Manager(app)
 
-manager.add_command('napp', MigrateCommand)
-
-from views import *
+manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()
-    app.run(host='0.0.0.0')
