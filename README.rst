@@ -23,8 +23,8 @@ default Git version is the master branch. ::
 
 Create a virtualenv and activate it::
 
-    $ python3 -m venv venv
-    $ . venv/bin/activate
+    $ python -m venv nfdos
+    $ . nfdos/bin/activate
 
 Or on Windows cmd::
 
