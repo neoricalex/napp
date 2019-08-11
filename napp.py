@@ -1,39 +1,18 @@
-from subprocess import Popen
-import sys, pathlib
+from lib.funcoes import checkarDB
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-def iniciarFlask():
-    while True:
-        processo = Popen("python ./flask/app.py", shell=True)
-        processo.wait()
+print('Checkar se a base de dados existe ...')
+checkarDB()
 
-def instalarMigrations():
-    processo = Popen("python ./flask/bd.py db init", shell=True)
-    processo.wait()
+ip = '0.0.0.0'
+porta = '5000'
 
-def instalarBD():
-    migracoes = pathlib.Path('migrations')
-    if migracoes.is_dir():
-        processo = Popen("python ./flask/bd.py db migrate", shell=True)
-        processo.wait()
-    else:
-        instalarMigrations()
-        processo = Popen("python ./flask/bd.py db migrate", shell=True)
-        processo.wait()
+app = Flask(__name__)
+app.config.from_pyfile('./lib/config.py')
+db = SQLAlchemy(app)
 
-def atualizarBD():
-    processo = Popen("python ./flask/bd.py db upgrade", shell=True)
-    processo.wait()
+#from views import *
 
-
-if len(sys.argv) > 1:
-    argumento = sys.argv[1] + '.py'
-    processo = Popen("python " + argumento, shell=True)
-    processo.wait()
-else:
-    base_de_dados = pathlib.Path('baseDeDados.db')
-    if base_de_dados.is_file():
-        iniciarFlask()
-    else:
-        instalarBD()
-        atualizarBD()
-        iniciarFlask()
+if __name__ == '__main__':
+    app.run(host=ip, port=porta)
