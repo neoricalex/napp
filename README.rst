@@ -14,41 +14,29 @@ you're reading.** You probably want the latest tagged version, but the
 default Git version is the master branch. ::
 
     # clone the repository
-    $ git clone https://github.com/pallets/flask
-    $ cd flask
+    $ git clone https://github.com/neoricalex/napp
+    $ cd napp
     # checkout the correct version
     $ git tag  # shows the tagged versions
     $ git checkout latest-tag-found-above
-    $ cd examples/tutorial
 
-Create a virtualenv and activate it::
+Ativar o virtualenv::
 
-    $ python -m venv nfdos
     $ . nfdos/bin/activate
 
 Or on Windows cmd::
 
-    $ py -3 -m venv venv
-    $ venv\Scripts\activate.bat
+    $ nfdos\Scripts\activate.bat
 
 Install napp::
 
     $ pip install -e .
-
-Or if you are using the master branch, install Flask from source before
-installing napp::
-
-    $ pip install -e ../..
-    $ pip install -e .
-
 
 Run
 ---
 
 ::
 
-    $ export FLASK_APP=napp
-    $ export FLASK_ENV=development
     $ flask init-db
     $ flask run
 
