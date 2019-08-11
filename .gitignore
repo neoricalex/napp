@@ -125,5 +125,6 @@ dmypy.json
 
 # Pessoal
 .vscode
+migrations/
 baseDeDados.db
 

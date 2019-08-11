@@ -18,7 +18,6 @@ cd napp
 ```bash
 python -m venv env
 source env/bin/activate
-pip install -r requerimentos.txt
 ```
 ## Instalar os Requerimentos
 ```bash
