@@ -1,6 +1,0 @@
-include LICENSE
-include napp/schema.sql
-graft napp/static
-graft napp/templates
-graft tests
-global-exclude *.pyc
