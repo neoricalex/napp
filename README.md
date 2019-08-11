@@ -1,6 +1,15 @@
 # napp
 
 ## Pré-Requisitos
+* GIT
+* Python
+
+## Clonar
+```bash
+git clone git@github.com:neoricalex/napp.git
+```
+
+## Pré-Requisitos
 ```bash
 cd napp
 python -m venv env # Python 3 !
