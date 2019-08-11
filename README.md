@@ -9,7 +9,7 @@
 git clone git@github.com:neoricalex/napp.git
 ```
 
-## Pré-Requisitos
+## Criar um Ambiente de Desenvolvimento
 ```bash
 cd napp
 python -m venv env # Python 3 !
