@@ -2,7 +2,7 @@
 
 ## Pré-Requisitos
 * GIT
-* Python
+* Python 3
 
 ## Clonar
 ```bash
@@ -14,11 +14,14 @@ git clone git@github.com:neoricalex/napp.git
 cd napp
 ```
 
-## Criar um Ambiente de Desenvolvimento (Opcional)
+## Criar um Ambiente de Desenvolvimento
 ```bash
-python -m venv env # Python 3 !
+python -m venv env
 source env/bin/activate
-python -m pip install -U pylint
+pip install -r requerimentos.txt
+```
+## Instalar os Requerimentos
+```bash
 pip install -r requerimentos.txt
 ```
 
